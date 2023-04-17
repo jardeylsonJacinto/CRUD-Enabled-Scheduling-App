@@ -7,6 +7,11 @@ const app = express();
 let corsOptions = { origin: "http://localhost:3333"};
 const PORT = process.env.PORT || 3333;
 
+const db = require("../models");
+db.sequelize.sync({ force: false }).then(() => {
+  console.log("Drop and re-sync db.");
+});
+
 app.use(cors(corsOptions));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
