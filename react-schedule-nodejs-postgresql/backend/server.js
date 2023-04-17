@@ -1,4 +1,4 @@
-let corsOptions = { origin: "http://localhost:3333" };
+let corsOptions = { origin: "http://localhost:3334" };
 const bodyParser = require("body-parser");
 const express = require("express");
 const cors = require("cors");
