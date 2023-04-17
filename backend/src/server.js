@@ -12,6 +12,12 @@ db.sequelize.sync({ force: false }).then(() => {
   console.log("Drop and re-sync db.");
 });
 
+require("./routes/scheduler.routes")(app);
+// set port, listen for requests
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}.`);
+});
+
 app.use(cors(corsOptions));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
